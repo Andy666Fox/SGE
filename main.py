@@ -15,14 +15,14 @@ def set_params_window():
             break
 
         if event == 'ENCODE':
-            sg.popup('Large files can take a long time to process (up to 20 minutes). Be patient.')
+            sg.popup('Large files can take a long time to process,\n(up to 20 minutes). Be patient.')
             encode(values[0])
-            sg.popup('Done!')
+            sg.popup('---Done!---')
 
         if event == 'DECODE':
-            sg.popup('Large files can take a long time to process (up to 20 minutes). Be patient.')
+            sg.popup('Large files can take a long time to process,\n(up to 20 minutes). Be patient.')
             decode(values[0])  
-            sg.popup('Done!')  
+            sg.popup('---Done!---')  
 
     window.close()
 
