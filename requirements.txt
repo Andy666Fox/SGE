@@ -1,0 +1,6 @@
+pysimplegui
+math
+numpy
+pillow
+scipy
+colormap
