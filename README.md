@@ -10,7 +10,7 @@ Finishing my beer on Saturday night and watching a YouTube video about cryptogra
 ## Instructions for use:
 1. Download the zip archive and unpack it wherever convenient.
 2. Open the console and install the packages from **requierements.txt** with the command: `pip install -r requirements.txt`
-3. Now with the command `python matrix_im.py` run the program.Now you need to specify the path to the file and choose what you want to do with it.**ENCODE** button will encode an audio file (only .wav format) and save it in the current directory.**DECODE** button will decode the image (only .png format) and save the resulting audio file in the current directory.The **EXIT** button converts the space-time continuum and closes the window.
+3. Now with the command `python main.py` run the program.Now you need to specify the path to the file and choose what you want to do with it.**ENCODE** button will encode an audio file (only .wav format) and save it in the current directory.**DECODE** button will decode the image (only .png format) and save the resulting audio file in the current directory.The **EXIT** button converts the space-time continuum and closes the window.
 
 ## Warning!
 The processing time and resolution of the output image directly depends on the size of the input file. So if you want to encrypt your girlfriend's voice for 5 minutes, you have to wait a couple of thousand years)) Be careful.
