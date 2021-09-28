@@ -1,22 +1,31 @@
 import PySimpleGUI as sg
+from enc_dec import  * 
 
 def set_params_window():
-    layout = [[sg.Text('                     MATRIX IMAGE')],
-              [sg.Text('Enter path to file:'), sg.InputText()],
-              [sg.Button('ENCODE'), sg.Button('DECODE')]]
+    layout = [[sg.Text('                       SGE')                      ],
+              [sg.Text('Enter path to file:'), sg.InputText()             ],
+              [sg.Button('ENCODE'), sg.Button('DECODE'), sg.Button('EXIT')]]
     
     window = sg.Window('SGE', layout, (20,300))      
     
+    while True:    
+        event, values = window.read()  
+        
+        if event == sg.WIN_CLOSED or event == 'EXIT':
+            break
 
-    event, values = window.read()    
+        if event == 'ENCODE':
+            sg.popup('Large files can take a long time to process (up to 20 minutes). Be patient.')
+            encode(values[0])
+            sg.popup('Done!')
+
+        if event == 'DECODE':
+            sg.popup('Large files can take a long time to process (up to 20 minutes). Be patient.')
+            decode(values[0])  
+            sg.popup('Done!')  
+
     window.close()
 
-    path = values[0]  
-    size = values[1]
-    
-    if event[0]:
-        window.close()
-        
-    return path, int(size)
 
-set_params_window()
+if __name__ == '__main__':
+    set_params_window()
