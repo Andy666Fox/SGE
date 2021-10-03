@@ -16,6 +16,7 @@ def encode(file: str) -> PIL.PngImagePlugin.PngImageFile:
         It takes a .wav file as input and encodes first in HEX and then in RGB.
         The output is an image with audio encoded in it
     """
+    
     srate , s_arr = wavfile.read(file)
     resolution = math.ceil(np.sqrt(len(s_arr)))
     delta_res = resolution**2 - len(s_arr)
@@ -62,6 +63,7 @@ def decode(path: str):
     
     """Audio decoding function from image. Uses the inverse algorithm of the encode () function
     """
+    
     img = np.array(Image.open(path))
     img = img.reshape(img.shape[0]**2, 3)
     
@@ -88,5 +90,6 @@ def decode(path: str):
     samplerate -= samplerate % -100
        
     wavfile.write(f'{path[:-4]}_decoded.wav', samplerate, end_arr)
+    
     os.system(f'ffmpeg -i {path[:-4]}_decoded.wav -ar 44100 {path[:-4]}_decoded.mp3')
     os.remove(f'{path[:-4]}_decoded.wav')
