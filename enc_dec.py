@@ -29,6 +29,8 @@ def encode(file: str) -> PIL.PngImagePlugin.PngImageFile:
     # resize samplerate to encode it in last pixel
     srate_rgb = int(srate ** (1/3))
     
+    
+    # Main encoding loop
     for elem in s_arr:   
         gate = np.random.choice([False, True])
         app = None
