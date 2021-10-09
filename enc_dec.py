@@ -23,6 +23,7 @@ def encode(file: str) -> PIL.PngImagePlugin.PngImageFile:
     
     new_arr = []
 
+    # Symbols to make "salt" in hex-code
     buffer_symbols = ['a', 'b', 'c', 'd', 'e']
     
     srate_rgb = int(srate ** (1/3))
