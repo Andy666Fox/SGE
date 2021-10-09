@@ -60,6 +60,7 @@ def encode(file: str) -> PIL.PngImagePlugin.PngImageFile:
     p_arr = p_arr.reshape(resolution, resolution, 3)
     p_arr = p_arr.astype(np.uint8)
     
+    # Resize array and make picture from him
     img = Image.fromarray(p_arr)
     img.save(f'{file[:-4]}_encoded.png')
     
