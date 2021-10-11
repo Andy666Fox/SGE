@@ -82,7 +82,9 @@ def decode(path: str):
         f_arr.append(rgb2hex(*elem))
         
     for h in f_arr:
+        
         res = None
+        
         if h[1].lower() == 'f':
             res = re.findall('\d+', h)[0]
             res = -int(res)
