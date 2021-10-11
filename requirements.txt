@@ -1,7 +1,7 @@
-pysimplegui
+pysimplegui==4.47.0
 math
-numpy
-pillow
-scipy
-colormap
+numpy==1.20.1
+PIL==8.2.0
+scipy==1.6.2
+colormap==1.0.3
 ffmpeg
