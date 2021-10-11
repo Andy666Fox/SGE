@@ -33,7 +33,10 @@ def encode(file: str) -> PIL.PngImagePlugin.PngImageFile:
     # Main encoding loop
     for elem in s_arr:   
         gate = np.random.choice([False, True])
+        
         app = None
+        
+        # Salt generated here
         salt_pos = ''.join([np.random.choice(buffer_symbols) for _ in range(6-len(str(elem)))])
         salt_neg = ''.join([np.random.choice(buffer_symbols) for _ in range(6-len(str(elem)))])
         
@@ -56,11 +59,11 @@ def encode(file: str) -> PIL.PngImagePlugin.PngImageFile:
                 app = f'#f{salt_neg}{elem*-1}'
                 new_arr.append(app)
             
+    # Resize array and make picture from him
     p_arr = np.array([list(hex2rgb(x)) for x in new_arr] + [[0,0,0] for x in range(delta_res - 1)] + [[srate_rgb, srate_rgb, srate_rgb]])
     p_arr = p_arr.reshape(resolution, resolution, 3)
     p_arr = p_arr.astype(np.uint8)
     
-    # Resize array and make picture from him
     img = Image.fromarray(p_arr)
     img.save(f'{file[:-4]}_encoded.png')
     
