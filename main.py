@@ -1,6 +1,9 @@
+# Imports
+
 import PySimpleGUI as sg
 from enc_dec import  * 
 
+# Main window function
 def set_params_window():
     layout = [[sg.Text('                       SGE')                      ],
               [sg.Text('Enter path to file:'), sg.InputText()             ],
