@@ -101,5 +101,8 @@ def decode(path: str):
        
     wavfile.write(f'{path[:-4]}_decoded.wav', samplerate, end_arr)
     
-    os.system(f'ffmpeg -i {path[:-4]}_decoded.wav -ar 44100 {path[:-4]}_decoded.mp3')
-    os.remove(f'{path[:-4]}_decoded.wav')
+    try:
+        os.system(f'ffmpeg -i {path[:-4]}_decoded.wav -ar 44100 {path[:-4]}_decoded.mp3')
+        os.remove(f'{path[:-4]}_decoded.wav')
+    except:
+        pass
