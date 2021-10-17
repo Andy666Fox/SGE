@@ -10,7 +10,7 @@ from colormap import rgb2hex, hex2rgb
 import re
 import os
 
-def encode(file: str) -> PIL.PngImagePlugin.PngImageFile:
+def encode(file: str) -> #PIL.PngImagePlugin.PngImageFile:
     
     """ Audio track encoding function.
         It takes a .wav file as input and encodes first in HEX and then in RGB.
