@@ -1,6 +1,6 @@
 # Imports
 import PySimpleGUI as sg
-from enc_dec import  * 
+from deencode import  * 
 
 # Main window function
 def set_params_window():
