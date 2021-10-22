@@ -1,5 +1,5 @@
-    """Script for comparing the original and decoded file. Provides a summary of the standard deviation, mean values, and a small visualization.
-    """
+"""Script for comparing the original and decoded file. Provides a summary of the standard deviation, mean values, and a small visualization.
+"""
 
 import math
 import numpy as np 
@@ -41,12 +41,12 @@ class Compare(ABC):
         pl1 = np.log(self.wav1) if log else self.wav1
         pl2 = np.log(self.wav2) if log else self.wav2
         
-        fig, ax =   plt.subplots(figsize=(8,6))
-        ax.plot(pl1, label=f'WAV1 srate: {self.srate1}')
-        ax.plot(pl2, label=f'WAV2 srate:{self.srate2}')
-        plt.title(f'Files convergence: {str(convergence)[:5]} % \n Percentage of losses: {str(100 - convergence)[:5]} %')
-        plt.legend(loc='best')
-        plt.show()      
+        fig, axs =   plt.subplots(2)
+        fig.suptitle(f'Files convergence: {str(convergence)[:5]} % \n Percentage of losses: {str(100 - convergence)[:5]} %')
+        axs[0].plot(pl1, label=f'WAV1 srate: {self.srate1}', color='red')
+        axs[1].plot(pl2, label=f'WAV2 srate:{self.srate2}', color='orange')   
+        fig.legend() 
+        plt.show()
         
     def all_compare(self):
         self.table()

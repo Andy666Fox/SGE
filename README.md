@@ -17,6 +17,10 @@ The processing time and resolution of the output image directly depends on the s
 ![](readme_images/duration.png)
 
 ## Changes, people, changes!:
+### --------------22.10.21--------------
+Added a small module for comparing the received files.
+
+
 ### --------------28.09.21--------------
 Most of what I wanted has already been implemented. But here is a small list of recent changes.
 
