@@ -99,11 +99,12 @@ def decode(path: str):
     
     samplerate = img[-1][-1] ** 3
     samplerate -= samplerate % -100
-       
-    wavfile.write(f'{path[:-4]}_decoded.wav', samplerate, end_arr)
+    border = path.index('_')
+    
+    wavfile.write(f'{path[:border]}_decoded.wav', samplerate, end_arr)
     
     try:
-        os.system(f'ffmpeg -i {path[:-4]}_decoded.wav -ar 44100 {path[:-4]}_decoded.mp3')
+        os.system(f'ffmpeg -i {path[:border]}_decoded.wav -ar 44100 {path[:border]}_decoded.mp3')
         #os.remove(f'{path[:-4]}_decoded.wav')
     except:
         pass

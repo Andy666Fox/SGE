@@ -19,6 +19,9 @@ The processing time and resolution of the output image directly depends on the s
 ## Changes, people, changes!:
 ### --------------22.10.21--------------
 Added a small module for comparing the received files.
+Enter `python compare.py` in cmd to use
+
+![Compare](readme_images/compare.png)
 
 
 ### --------------28.09.21--------------
