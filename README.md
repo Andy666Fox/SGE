@@ -17,6 +17,9 @@ The processing time and resolution of the output image directly depends on the s
 ![](readme_images/duration.png)
 
 ## Changes, people, changes!:
+### --------------8.11.21--------------
+1. Refactor the `deencode.py`. It turned out to be very convenient to use classes, who would know.
+
 ### --------------22.10.21--------------
 Added a small module for comparing the received files.
 Enter `python compare.py` in cmd to use
