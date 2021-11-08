@@ -62,7 +62,34 @@ class SGE(ABC):
         img = Image.fromarray(p_arr)
         img.save(f'{self.path[:-4]}_encoded.png')
         
+
+    def decode(self, path_to_img: str):
         
+        im_arr = np.array(Image.open(path_to_img))
+        im_arr = im_arr.reshape(im_arr.shape[0]**2, 3)
+        im_arr = np.array([rgb2hex(*x) for x in im_arr])
+        
+        end_arr = []
+        
+        for h in im_arr:
+            
+            res = None
+            
+            res = re.findall('\d+', h)[0]
+            end_arr.append(-int(res) if h[1].lower() == 'f' else int(res))
+
+        end_arr = np.array(end_arr).astype(np.int16)
+        
+        samplerate = im_arr[-1][-1] ** 3
+        samplerate -= samplerate % -100
+        border = path_to_img.index('_')
+        
+        wavfile.write(f'{path_to_img[:border]}_decoded.wav', samplerate, end_arr)
+        
+        try:
+            os.system(f'ffmpeg -i {path_to_img[:border]}_decoded.wav -ar 44100 {path_to_img[:border]}_decoded.mp3')
+        except:
+            pass        
         
 
 codec = SGE('test.wav')
