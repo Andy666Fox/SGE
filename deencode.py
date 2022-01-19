@@ -29,6 +29,7 @@ class SGE(ABC):
         srate_rgb = int(samplerate ** (1/3))
         s_rate_buffer = [[srate_rgb, srate_rgb, srate_rgb] for x in range(delta_res)]
         
+        
         for elem in s_arr:
             gate = choice([False, True])
             
@@ -46,6 +47,7 @@ class SGE(ABC):
                 new_arr.append(app)
                 
             else:
+                
                 
                 if gate:
                     app = f'#f{-elem}' + salt_negative
@@ -91,5 +93,6 @@ class SGE(ABC):
         
         try:
             os.system(f'ffmpeg -i {path_to_img[:border]}_decoded.wav -ar 44100 {path_to_img[:border]}_decoded.mp3')
-        except:
-            pass        
+        except Exception as e:
+            print(e)
+            
