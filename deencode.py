@@ -16,27 +16,27 @@ from abc import ABC
 class SGE(ABC):
     
     def __init__(self) -> None:
-        self.buffer_symbols = ['a', 'b', 'c', 'd', 'e']
+        self.buffer_symbols: list[str] = ['a', 'b', 'c', 'd', 'e']
         
         
-    def encode(self, path_to_file):
+    def encode(self, path_to_file) -> None:
         
         samplerate, s_arr = wavfile.read(path_to_file)
-        resolution = math.ceil(np.sqrt(len(s_arr)))
-        delta_res = resolution ** 2 - len(s_arr)
+        resolution: int = math.ceil(np.sqrt(len(s_arr)))
+        delta_res: int = resolution ** 2 - len(s_arr)
         
-        new_arr = []
+        new_arr: list[str] = []
         srate_rgb = int(samplerate ** (1/3))
         s_rate_buffer = [[srate_rgb, srate_rgb, srate_rgb] for x in range(delta_res)]
         
         
         for elem in s_arr:
-            gate = choice([False, True])
+            gate: bool = choice([False, True])
             
             app = None
             
-            salt_positive = ''.join([choice(self.buffer_symbols) for i in range(6 - len(str(elem)))])
-            salt_negative = ''.join([choice(self.buffer_symbols) for i in range(6 - len(str(elem)))])
+            salt_positive: str = ''.join([choice(self.buffer_symbols) for i in range(6 - len(str(elem)))])
+            salt_negative: str = ''.join([choice(self.buffer_symbols) for i in range(6 - len(str(elem)))])
         
             if elem >= 0:
                 
