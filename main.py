@@ -1,7 +1,11 @@
 # Imports
 import PySimpleGUI as sg
+<<<<<<< Updated upstream
 from deencode import  SGE
 
+=======
+from deencode import  * 
+>>>>>>> Stashed changes
 
 # Main window function
 def set_params_window():
