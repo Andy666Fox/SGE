@@ -19,12 +19,12 @@ class Compare(ABC):
         
     
     def table(self):
-        std1 = np.std(self.wav1)
-        std2 = np.std(self.wav2)
-        l1 = f'{str(len(self.wav1))} samples'
-        l2 = f'{str(len(self.wav2))} samples'
-        m1 = np.mean(self.wav1)
-        m2 = np.mean(self.wav2)
+        std1: float = np.std(self.wav1)
+        std2: float = np.std(self.wav2)
+        l1: str = f'{str(len(self.wav1))} samples'
+        l2: str = f'{str(len(self.wav2))} samples'
+        m1: float = np.mean(self.wav1)
+        m2: float = np.mean(self.wav2)
     
         tb = PrettyTable()
         tb.field_names = ['Criterion', self.n1, self.n2]
@@ -36,7 +36,7 @@ class Compare(ABC):
         
     def compare(self, log=False):
 
-        res = (np.sum(self.wav1) / np.sum(self.wav2)) * 100
+        res: float = (np.sum(self.wav1) / np.sum(self.wav2)) * 100
         convergence = res if res > 0 else 0
         
         pl1 = np.log(self.wav1) if log else self.wav1
