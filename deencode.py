@@ -10,6 +10,7 @@ from colormap import rgb2hex, hex2rgb
 import re
 import os
 
+
 def encode(file: str): # --> PIL.PngImagePlugin.PngImageFile
     
     """ Audio track encoding function.
@@ -48,6 +49,7 @@ def encode(file: str): # --> PIL.PngImagePlugin.PngImageFile
             else:
                 app = f'#{salt_pos}{elem}'
                 new_arr.append(app)  
+                
         else:
             
             if gate:
