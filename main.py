@@ -1,11 +1,6 @@
 # Imports
 import PySimpleGUI as sg
-<<<<<<< Updated upstream
-from deencode import  SGE
-
-=======
 from deencode import  * 
->>>>>>> Stashed changes
 
 # Main window function
 def set_params_window():
@@ -18,7 +13,6 @@ def set_params_window():
               [sg.Button('ENCODE'), sg.Button('DECODE'), sg.Button('EXIT')]]
     
     window = sg.Window('SGE', layout, (20,300))      
-    codec = SGE()
     
     while True:    
         event, values = window.read()  
@@ -28,12 +22,12 @@ def set_params_window():
 
         if event == 'ENCODE':
             sg.popup('Large files can take a long time to process,\n(up to 20 minutes). Be patient.')
-            codec.encode(values[0])
+            encode(values[0])
             sg.popup('---Done!---')
 
         if event == 'DECODE':
             sg.popup('Large files can take a long time to process,\n(up to 20 minutes). Be patient.')
-            codec.decode(values[0])  
+            decode(values[0])  
             sg.popup('---Done!---')  
 
     window.close()
