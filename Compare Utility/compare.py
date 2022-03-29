@@ -32,6 +32,7 @@ class Compare(ABC):
         sq2: float = math.sqrt(self.wav2)
     
         tb = PrettyTable()
+        
         tb.field_names = ['Criterion', self.n1, self.n2]
         tb.add_row(['STD', std1, std2])
         tb.add_row(['LENGHT', l1, l2])
