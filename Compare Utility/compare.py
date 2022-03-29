@@ -18,18 +18,25 @@ class Compare(ABC):
         
     
     def table(self):
+
         std1: float = np.std(self.wav1)
         std2: float = np.std(self.wav2)
+
         l1: str = f'{str(len(self.wav1))} samples'
         l2: str = f'{str(len(self.wav2))} samples'
+
         m1: float = np.mean(self.wav1)
         m2: float = np.mean(self.wav2)
+
+        sq1: float = math.sqrt(self.wav1)
+        sq2: float = math.sqrt(self.wav2)
     
         tb = PrettyTable()
         tb.field_names = ['Criterion', self.n1, self.n2]
         tb.add_row(['STD', std1, std2])
         tb.add_row(['LENGHT', l1, l2])
         tb.add_row(['MEAN', m1, m2])
+        tb.add_row(['SQRT', sq1, sq2])
         
         print(tb)
         
