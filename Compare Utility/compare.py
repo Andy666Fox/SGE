@@ -1,7 +1,6 @@
 """Script for comparing the original and decoded file. Provides a summary of the standard deviation, mean values, and a small visualization.
 """
 
-
 import math
 import numpy as np 
 from scipy.io import wavfile
@@ -57,4 +56,5 @@ class Compare(ABC):
 wav1 = input('Enter first filepath: ')
 wav2 = input('Enter second filepath:')
 conv = Compare(wav1, wav2)
+
 conv.all_compare()
