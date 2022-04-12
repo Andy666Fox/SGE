@@ -8,7 +8,10 @@ import PIL
 
 from colormap import rgb2hex, hex2rgb
 import re
-import os
+
+from tqdm import tqdm
+
+#import os
 
 
 def encode(file: str): # --> PIL.PngImagePlugin.PngImageFile
@@ -32,7 +35,7 @@ def encode(file: str): # --> PIL.PngImagePlugin.PngImageFile
     
     
     # Main encoding loop
-    for elem in s_arr:   
+    for elem in tqdm(s_arr):   
         gate = np.random.choice([False, True])
         
         app = None
@@ -54,7 +57,7 @@ def encode(file: str): # --> PIL.PngImagePlugin.PngImageFile
             
             if gate:
             
-                app = f'#f{elem*-1}' + salt_neg
+                app = f'#f{elem*-1}{salt_neg}'
                 new_arr.append(app)
                 
             else:
@@ -83,7 +86,7 @@ def decode(path: str):
     for elem in img:
         f_arr.append(rgb2hex(*elem))
         
-    for h in f_arr:
+    for h in tqdm(f_arr):
         
         res = None
         
