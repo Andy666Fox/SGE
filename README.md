@@ -21,10 +21,11 @@ The processing time and resolution of the output image directly depends on the s
 1. Refactor the `deencode.py`. It turned out to be very convenient to use classes, who would know.
 
 ### --------------22.10.21--------------
-Added a small module for comparing the received files.
-Enter `python compare.py` in cmd to use
+~~Added a small module for comparing the received files.
+Enter `python compare.py` in cmd to use~~
 
-![Compare](readme_images/compare.png)
+**This function has been removed due to the alien nature of the assignment.**
+
 
 
 ### --------------28.09.21--------------
