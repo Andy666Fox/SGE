@@ -83,9 +83,10 @@ def decode(path: str):
 
     """Audio decoding function from image. Uses the inverse algorithm of the encode () function
     """
-
+    
     img = np.array(Image.open(path))
     img = img.reshape(img.shape[0] ** 2, 3)
+    
 
     f_arr = []
     end_arr = []
